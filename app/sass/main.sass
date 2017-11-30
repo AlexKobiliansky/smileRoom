@@ -62,6 +62,262 @@ section
 p
   margin: 0
 
+
+//game customization
+.pickUp_wrapper._main
+  text-align: center
+  margin-top: 0px
+
+.pickUp_game
+  width: 800px
+  height: 467px
+  background: url("../img/gameBack.png")
+  background-position: 0px 100px
+  background-repeat: no-repeat
+  margin: auto
+
+.pickUp_down
+  overflow: hidden
+  margin-top: -40px
+
+.pickUp_left
+  width: 599px
+  text-align: left
+  float: left
+
+.pickUp_count
+  font-size: 22px
+  margin-bottom: 10px
+
+.pickUp_count_function .rouble:after
+  content: ''
+  position: absolute
+  width: 12px
+  height: 2px
+  top: 22px
+  right: 8px
+  background: #26358c
+
+.pickUp_count_function .rouble:before
+  content: ''
+  width:  3px
+  height: 3px
+  background: #26358c
+  position: absolute
+  top:  17px
+  right:  17px
+
+.pickUp_disclaimer
+  width: 480px
+  font-size: 18px
+  line-height: 25px
+
+.pickUp_game_area
+  width: 569px
+  height: 66px
+  margin: auto
+  position: relative
+  padding-top: 115px
+
+.pickUp_game_item
+  position: absolute
+  width: 30px
+  height: 40px
+.pickUp_game_item._activeLeft
+  background-image: url("../img/blueGame.png")
+.pickUp_game_item._activeRight
+  background-image: url("../img/redGame.png")
+.pickUp_game_item_right
+  position: absolute
+  top: 116px
+  left: 376px
+  cursor: pointer
+  width: 30px
+  height: 66px
+  z-index: 20
+.pickUp_game_item_left
+  position: absolute
+  width: 30px
+  height: 66px
+  top: 116px
+  left: 184px
+  cursor: pointer
+  z-index: 20
+.pickUp_game_item_do
+  font-size: 15px
+  text-align: left
+  width: 167px
+  position: absolute
+  top: -76px
+  left: -37px
+  display: none
+.pickUp_game_item_posle
+  font-size: 15px
+  text-align: left
+  width: 157px
+  position: absolute
+  top: -76px
+  left: -37px
+  display: none
+.pickUp_game_item._activeLeft._showDop .pickUp_game_item_posle
+  display: block
+.pickUp_game_item._activeRight._showDop .pickUp_game_item_do
+  display: block
+.pickUp_game_item._activeRight:before
+  content: ''
+  position: absolute
+  width: 19px
+  height: 4px
+  background: #f76164
+  top: -22px
+  left: 0px
+  transform: rotate(45deg)
+  border-radius: 5px
+.pickUp_game_item._activeRight:after
+  content: ''
+  position: absolute
+  width: 19px
+  height: 4px
+  background: #f76164
+  top: -22px
+  left: 12px
+  transform: rotate(-45deg)
+  border-radius: 5px
+.pickUp_game_item._activeLeft._active,.pickUp_game_item._activeRight._active
+  filter: brightness(0.8)
+.pickUp_game_item._activeLeft:before
+  content: ''
+  position: absolute
+  width: 19px
+  height: 4px
+  background: #8391d0
+  top: -22px
+  left: 0px
+  transform: rotate(45deg)
+  border-radius: 5px
+.pickUp_game_item._activeLeft:after
+  content: ''
+  position: absolute
+  width: 19px
+  height: 4px
+  background: #8391d0
+  top: -22px
+  left: 12px
+  transform: rotate(-45deg)
+  border-radius: 5px
+.pickUp_game_item[data-tone="1"]
+  top: 134px
+  left: 3px
+.pickUp_game_item[data-tone="2"]
+  top: 128px
+  left: 34px
+.pickUp_game_item[data-tone="3"]
+  top: 125px
+  left: 64px
+.pickUp_game_item[data-tone="4"]
+  top: 121px
+  left: 95px
+.pickUp_game_item[data-tone="5"]
+  top: 120px
+  left: 125px
+.pickUp_game_item[data-tone="6"]
+  top: 118px
+  left: 154px
+.pickUp_game_item[data-tone="7"]
+  top: 116px
+  left: 183px
+.pickUp_game_item[data-tone="8"]
+  top: 115px
+  left: 211px
+.pickUp_game_item[data-tone="9"]
+  top: 114px
+  left: 238px
+.pickUp_game_item[data-tone="10"]
+  top: 114px
+  left: 266px
+.pickUp_game_item[data-tone="11"]
+  top: 114px
+  left: 294px
+.pickUp_game_item[data-tone="12"]
+  top: 115px
+  left: 321px
+.pickUp_game_item[data-tone="13"]
+  top: 117px
+  left: 349px
+.pickUp_game_item[data-tone="14"]
+  top: 119px
+  left: 376px
+.pickUp_game_item[data-tone="15"]
+  top: 121px
+  left: 404px
+.pickUp_game_item[data-tone="16"]
+  top: 124px
+  left: 432px
+.pickUp_game_item[data-tone="17"]
+  top: 128px
+  left: 458px
+.pickUp_game_item[data-tone="18"]
+  top: 130px
+  left: 485px
+.pickUp_game_item[data-tone="19"]
+  top: 136px
+  left: 514px
+.pickUp_game_item[data-tone="20"]
+  top: 141px
+  left: 539px
+
+//end game customization
+
+//mfp-zoom-in customization
+.my-mfp-zoom-in
+  .zoom-anim-dialog, .popup-window
+    opacity: 0
+    transition: all 0.5s ease-in-out
+    transform: scale(0.7)
+  &.mfp-ready .zoom-anim-dialog, &.mfp-ready .popup-window
+    opacity: 1
+    transform: scale(1)
+  &.mfp-removing .zoom-anim-dialog, &.mfp-removing .popup-window
+    transform: scale(0.7)
+    opacity: 0
+  &.mfp-bg
+    opacity: 0
+    transition: opacity 0.5s ease-out
+  &.mfp-ready.mfp-bg
+    opacity: 0
+  &.mfp-removing.mfp-bg
+    opacity: 0
+
+*
+  transition: filter .25s ease
+.mfp-wrap ~ *
+  filter: blur(5px)
+//end mfp-zoom-in customization
+
+
+
+/**
+ * Simple fade transition,
+
+.mfp-fade
+  &.mfp-bg
+    opacity: 0
+    transition: all 0.15s ease-out
+    &.mfp-ready
+      opacity: 0.8
+    &.mfp-removing
+      opacity: 0
+  &.mfp-wrap
+    .mfp-content
+      opacity: 0
+      transition: all 0.15s ease-out
+    &.mfp-ready .mfp-content
+      opacity: 1
+    &.mfp-removing .mfp-content
+      opacity: 0
+//
+
+
 //isnohome custom
 .isnohome
   .header-logo
@@ -298,6 +554,7 @@ section
   outline: 3px solid!important
   transition: all .3s ease
   &:hover, &:active, &:focus
+    text-decoration: none
     outline-offset: -10px
     outline: 3px solid!important
 
@@ -305,9 +562,14 @@ section
   color: #26358c
   background-color: #fff
   &:hover, &:active, &:focus
-    text-decoration: none
     color: #26358c
     background-color: #bce4fa
+.button-blue
+  color: #fff
+  background-color: #26358c
+  &:hover, &:active, &:focus
+    background-color: lighten(#26358c, 10%)
+    color: #fff
 
 .owl-head
   position: relative
@@ -329,18 +591,20 @@ section
     width: 9px
     height: 9px
 
-.s-how, .s-gel
+.s-how, .s-gel, .s-gain, .pickUp_wrapper
   img
     display: block
     width: 100%
     max-width: 800px
-    margin: 60px auto 0
+    margin: 20px auto 0
 .explain
   font-size: 13px
   position: relative
   top: -50px
 
-.popup-link, .popup-youtube, .popup-link:focus, .popup-youtube:focus, .popup-link:active, .popup-youtube:active
+.popup-link, .popup-youtube,
+.popup-link:focus, .popup-youtube:focus,
+.popup-link:active, .popup-youtube:active
   color: #26358c
   border-bottom: 1px dashed #8a94c2
   text-decoration: none
@@ -383,54 +647,60 @@ section
     width: 40px
   p
     display: inline-block
-//mfp-zoom-in customization
-.my-mfp-zoom-in
-  .zoom-anim-dialog, .popup-window
-    opacity: 0
-    transition: all 0.5s ease-in-out
-    transform: scale(0.7)
-  &.mfp-ready .zoom-anim-dialog, &.mfp-ready .popup-window
-    opacity: 1
-    transform: scale(1)
-  &.mfp-removing .zoom-anim-dialog, &.mfp-removing .popup-window
-    transform: scale(0.7)
-    opacity: 0
-  &.mfp-bg
-    opacity: 0
-    transition: opacity 0.5s ease-out
-  &.mfp-ready.mfp-bg
-    opacity: 0
-  &.mfp-removing.mfp-bg
-    opacity: 0
 
-*
-  transition: filter .25s ease
-.mfp-wrap ~ *
-  filter: blur(5px)
-//end mfp-zoom-in customization
+.s-gain
+  background-image: radial-gradient(circle, #494be5 0%, #494be5 10%, #161b4b 90%)
+  color: #fff
+  .section-img
+    position: relative
+    bottom: 80px
+    right: 0
+  .explain
+    font-size: 18px
 
+.qtip-default
+  background-color: #fff!important
+  color: black!important
+  border: none!important
+  font-size: 16px!important
+  line-height: 1!important
+  max-width: 100% !important
+  padding: 10px 25px!important
 
-//
-/**
- * Simple fade transition,
+.tooltip
+  color: #fff
+  border-bottom: 1px dashed #8a94c2
+  text-decoration: none
+  transition: all .15s ease
+.tooltip:hover, .tooltip:focus, .tooltip:active
+  color: #fff
+  text-decoration: none
+  border-bottom: 1px dashed lighten(#26358c, 15%)
 
-.mfp-fade
-  &.mfp-bg
-    opacity: 0
-    transition: all 0.15s ease-out
-    &.mfp-ready
-      opacity: 0.8
-    &.mfp-removing
-      opacity: 0
-  &.mfp-wrap
-    .mfp-content
-      opacity: 0
-      transition: all 0.15s ease-out
-    &.mfp-ready .mfp-content
-      opacity: 1
-    &.mfp-removing .mfp-content
-      opacity: 0
-//
+.page-link
+  color: #26358c
+  border-bottom: 1px solid #8a94c2
+  text-decoration: none
+  transition: all .15s ease
+.page-link:hover
+  color: lighten(#26358c, 15%)
+  text-decoration: none
+  border-bottom: 1px solid lighten(#26358c, 15%)
 
+.pickUp_wrapper
+  .button
+    display: inline-block
+    margin-top: 0
+    margin-bottom: 10px
+    max-width: 400px
+    white-space: nowrap
+  .section-img
+    margin: 20px 0
+
+.game-desc
+  padding: 0 100px
+
+.text-left
+  text-align: left
 
 @import "media" // Всегда в конце
