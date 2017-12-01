@@ -270,14 +270,14 @@ p
 
 //mfp-zoom-in customization
 .my-mfp-zoom-in
-  .zoom-anim-dialog, .popup-window
+  .zoom-anim-dialog, .popup-window, .window-sert img
     opacity: 0
     transition: all 0.5s ease-in-out
     transform: scale(0.7)
-  &.mfp-ready .zoom-anim-dialog, &.mfp-ready .popup-window
+  &.mfp-ready .zoom-anim-dialog, &.mfp-ready .popup-window, &.mfp-ready .window-sert img
     opacity: 1
     transform: scale(1)
-  &.mfp-removing .zoom-anim-dialog, &.mfp-removing .popup-window
+  &.mfp-removing .zoom-anim-dialog, &.mfp-removing .popup-window, &.mfp-removing .window-sert img
     transform: scale(0.7)
     opacity: 0
   &.mfp-bg
@@ -294,6 +294,25 @@ p
   filter: blur(5px)
 //end mfp-zoom-in customization
 
+//my-mfp-zoom-sert
+.my-mfp-zoom-sert
+  .zoom-anim-dialog, .window-sert img
+    opacity: 0
+    transition: all 0.5s ease-in-out
+    transform: scale(0.7)
+  &.mfp-ready .zoom-anim-dialog, &.mfp-ready .window-sert img
+    opacity: 1
+    transform: scale(1)
+  &.mfp-removing .zoom-anim-dialog, &.mfp-removing .window-sert img
+    transform: scale(0.7)
+    opacity: 0
+  &.mfp-bg
+    opacity: 0
+    transition: opacity 0.5s ease-out
+  &.mfp-ready.mfp-bg
+    opacity: .7
+  &.mfp-removing.mfp-bg
+    opacity: 0
 
 
 /**
@@ -729,4 +748,50 @@ section
   display: inline-block
   font-size: 13px
   margin-top: 2px
+
+.s-effect
+  p
+    margin-top: 8px
+
+.s-effect
+  img
+    width: 95%
+
+.s-security
+  text-align: left
+  p
+    margin-bottom: 15px
+  .section-img
+    img
+      width: 90%
+  .sert-item
+    margin-top: 30px
+    img
+      width: 100%
+      height: 100%
+
+
+.window-sert
+  img
+    display: block
+    margin: 0 auto
+    max-width: 400px
+    height: 600px
+  .mfp-close
+    color: #fff!important
+
+.dir-name
+  font-size: 16px
+  margin-top: 5px
+  a, a:hover, a:focus, a:active
+    text-decoration: none
+    color: #000
+  p
+    margin: 0
+.dir-post
+  font-size: 16px
+  color: #000
+.dir-photo-wrapper
+  position: relative
+
 @import "media" // Всегда в конце

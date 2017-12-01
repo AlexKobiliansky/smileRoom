@@ -9,6 +9,7 @@ $(function() {
     function heightses() {
         if ($(window).width()>=768) {
             $(".head-item>.title").height("auto").equalHeights();
+            $(".sert-item").height("auto").equalHeights();
         }
     }
 
@@ -31,6 +32,26 @@ $(function() {
         $(this).attr("href", "#popup-window-"+ e)
             .find(".popup-window").attr("id", "popup-window-"+e);
     });
+
+    $(".popup-sert").each(function(e){
+        $(this).attr("href", "#popup-sert-"+ e)
+            .find(".window-sert").attr("id", "popup-sert-"+e);
+    });
+
+
+    $('.popup-sert').magnificPopup({
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-sert',
+        type: 'inline',
+        fixedContentPos: false,
+        fixedBgPos: true,
+        gallery: {
+            enabled: true
+        },
+
+    });
+
+
 
     $(".popup-link").magnificPopup({
         type: 'inline',
