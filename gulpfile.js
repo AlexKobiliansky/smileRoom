@@ -30,7 +30,9 @@ gulp.task('js', ['common-js'], function() {
 		'app/libs/jquery/dist/jquery.min.js',
         'app/libs/jquery/dist/jquery-ui.min.js',
         'app/libs/equalHeights/jquery.equalheights.min.js',
+        'app/libs/masked-input/jquery.maskedinput.min.js',
 		'app/libs/owlCarousel/owl.carousel.min.js',
+		'app/libs/form-validator/form-validator/jquery.form-validator.min.js',
 		'app/libs/magnificPopup/jquery.magnific-popup.min.js',
 		'app/libs/qtip/jquery.qtip.min.js',
 		'app/js/common.min.js', // Всегда в конце

@@ -103,6 +103,59 @@ $(function() {
 
 
 
+
+
+    /*
+    $(".agree").on('click', function(){
+
+        var $holder = $(this).parents('.contact-form'),
+            $but = $holder.find('.button');
+
+            if ($(this).is(':checked')){
+                $but.removeClass("button-disable").removeAttr('disabled');
+            } else {
+                $but.addClass("button-disable").prop('disabled','disabled');
+
+            }
+       });
+*/
+
+
+    $.validate({
+        form : '.contact-form',
+    });
+
+    $('.contact-form').get(0).reset();
+
+    $(".user-phone").mask("+7 (999) 999-99-99",{autoclear: false});
+
+
+
+    $(".custom-check").on('click', function(){
+
+        var $holder = $(this).parents('.contact-form'),
+            $but = $holder.find('.button'),
+            $chck = $holder.find(".agree");
+
+        if ($chck.is(':checked')){
+            $but.addClass("button-disable").prop('disabled','disabled');
+            $chck.prop("checked", false);
+            $(this).find(".fa").css("opacity", .4);
+
+        } else {
+            $but.removeClass("button-disable").removeAttr('disabled');
+            $chck.prop("checked", true);
+
+            $(this).find(".fa").css("opacity", 1);
+
+
+        }
+    });
+
+
+
+
+
     $(init);
     function init() {
         var initOffset = $('.pickUp_game_area').offset();

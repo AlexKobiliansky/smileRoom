@@ -590,6 +590,11 @@ section
     background-color: lighten(#26358c, 10%)
     color: #fff
 
+.button-disable, .button-disable:hover, .button-disable:active, .button-disable:focus
+  background-color: #fff
+  color: grey
+  opacity: .3
+
 .owl-head
   position: relative
   .head-item
@@ -794,4 +799,69 @@ section
 .dir-photo-wrapper
   position: relative
 
+form.contact-form
+  margin-top: 30px
+  font-size: 16px
+  text-align: left
+  padding-right: 100px
+  padding-left: 50px
+.contact-form-head
+  h4
+    margin: 0 0 10px 0
+    font-size: 24px
+    font-family: "robotoBold", sans-serif
+  p
+    margin-bottom: 15px
+
+
+form
+  input[type="text"]
+    display: block
+    height: 38px
+    padding-left: 10px
+    border: 1px solid #bdc2dc
+    font-size: 14px
+    color: #2b2f33
+    width: 70%
+    margin-bottom: 15px
+    margin-top: 4px
+  .button
+    margin-top: 15px
+  .agree
+    opacity: 0
+
+.form-agreement
+  display: table
+  margin-top: 15px
+  position: relative
+  font-size: 14px
+  .agree
+    display: table-cell
+    margin-right: 15px
+  p
+    display: table-cell
+
+.custom-check
+  width: 16px
+  height: 16px
+  border: 1px solid #bdc2dc
+  background-color: #fff
+  position: absolute
+  top: 2px
+  .fa
+    position: relative
+    top: -2px
+    right: 1px
+    font-size: 18px
+
+.s-feedback
+  .section-img
+    img
+      width: 100%
+      max-width: 500px
+
+.form-error
+  color: rgb(185, 74, 72)
+  margin-left: 10px
+  font-size: 12px
 @import "media" // Всегда в конце
