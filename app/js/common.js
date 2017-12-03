@@ -7,9 +7,15 @@ $(function() {
     });
 
     function heightses() {
-        if ($(window).width()>=768) {
+        if ($(window).width()>=766) {
             $(".head-item>.title").height("auto").equalHeights();
             $(".sert-item").height("auto").equalHeights();
+            $(".cost-item-desc").height("auto").equalHeights();
+            $(".promo-item-title").height("auto").equalHeights();
+            $(".promo-item-text").height("auto").equalHeights();
+            $(".promo-item-desc").height("auto").equalHeights();
+            $(".goods-item-title").height("auto").equalHeights();
+
         }
     }
 
@@ -37,6 +43,9 @@ $(function() {
         $(this).attr("href", "#popup-sert-"+ e)
             .find(".window-sert").attr("id", "popup-sert-"+e);
     });
+
+
+    $("#instaShowGallery_1").find("a").css("background", "none");
 
 
     $('.popup-sert').magnificPopup({
@@ -101,35 +110,11 @@ $(function() {
     });
 
 
-
-
-
-
-    /*
-    $(".agree").on('click', function(){
-
-        var $holder = $(this).parents('.contact-form'),
-            $but = $holder.find('.button');
-
-            if ($(this).is(':checked')){
-                $but.removeClass("button-disable").removeAttr('disabled');
-            } else {
-                $but.addClass("button-disable").prop('disabled','disabled');
-
-            }
-       });
-*/
-
-
     $.validate({
         form : '.contact-form',
     });
 
-    $('.contact-form').get(0).reset();
-
     $(".user-phone").mask("+7 (999) 999-99-99",{autoclear: false});
-
-
 
     $(".custom-check").on('click', function(){
 
@@ -147,11 +132,39 @@ $(function() {
             $chck.prop("checked", true);
 
             $(this).find(".fa").css("opacity", 1);
-
-
         }
     });
 
+    $(".quest").on('click', function(){
+       var $wrapper = $(this).parents(".quest-wrap"),
+           $question = $(this),
+           $answer = $wrapper.find(".answer");
+
+        if ($answer.is(":visible")) {
+           $answer.slideUp();
+           $question.find(".answer-open").addClass("opened");
+
+       } else {
+           $answer.slideDown();
+           $question.find(".answer-open").removeClass("opened", 1000, "ease");
+
+       }
+    });
+
+    $(".moreinfo").hover(
+        function(){
+            $(this).parents(".goods-item").css("box-shadow", "4px 4px 6px 0 grey");
+            $(this).parents(".goods-item").find(".goods-item-desc").css("box-shadow", "4px 4px 6px 0 grey");
+            $(this).parents(".goods-item").find(".goods-item-desc").slideDown();
+        },
+        function(){
+            $(this).parents(".goods-item").css("box-shadow", "none");
+            $(this).parents(".goods-item").find(".goods-item-desc").css("box-shadow", "none");
+            $(this).parents(".goods-item").find(".goods-item-desc").slideUp();
+
+
+        }
+    );
 
 
 
