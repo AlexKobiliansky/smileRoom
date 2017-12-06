@@ -455,7 +455,6 @@ section
     right: 0
 
 .main-mnu
-  max-width: 900px
   margin: 0 auto
   ul
     list-style: none
@@ -624,16 +623,16 @@ section
 .explain
   font-size: 13px
   position: relative
-  top: -50px
+  top: -30px
 
-.popup-link, .popup-youtube,
-.popup-link:focus, .popup-youtube:focus,
-.popup-link:active, .popup-youtube:active
+.popup-link, .popup-youtube, .map-link,
+.popup-link:focus, .popup-youtube:focus, .map-link:focus,
+.popup-link:active, .popup-youtube:active, .map-link:active
   color: #26358c
   border-bottom: 1px dashed #8a94c2
   text-decoration: none
   transition: all .15s ease
-.popup-link:hover, .popup-youtube:hover
+.popup-link:hover, .popup-youtube:hover, .map-link:hover
     color: lighten(#26358c, 15%)
     text-decoration: none
     border-bottom: 1px dashed lighten(#26358c, 15%)
@@ -960,6 +959,12 @@ form
 
 
 .isnohome
+  .head-line
+    margin-bottom: 30px
+
+  section
+    padding-top: 10px
+
   form.contact-form
     .contact-form-head
       text-align: center
@@ -1135,6 +1140,84 @@ form
 .desc-wrapper
   position: relative
 
+.s-contact
+  h1
+    margin-bottom: 40px
 
+.contact-item
+  text-align: left
+  font-size: 16px
+  position: relative
+  border-bottom: 1px solid #dee0ed
+  padding-bottom: 15px
+  padding-top: 20px
+  .contact-address
+    padding-left: 28px
+    position: relative
+    margin-bottom: 13px
+    &::before
+      content: ''
+      width: 17px
+      height: 22px
+      background-image: url("../img/contactIcons.png")
+      position: absolute
+      left: 0
+      top: -3px
+  .contact-phone
+    padding-left: 28px
+    position: relative
+    margin-bottom: 13px
+    &::before
+      content: ''
+      position: absolute
+      width: 18px
+      height: 17px
+      background-image: url("../img/contactIcons.png")
+      background-position: -16px -3px
+      left: 0
+  .contact-record
+    position: absolute
+    right: 0
+    top: calc(50% - 30px)
+  .button
+    margin-top: 0
+
+.contact-item:last-of-type
+  border: none
+
+.instagram
+  background-image: url("../img/Insta-logo.svg")
+  background-size: contain
+
+.vk
+  background-image: url("../img/VK-logo.svg")
+  background-size: contain
+
+.soc-icon
+  width: 39px
+  height: 39px
+  display: inline-block
+  position: relative
+  top: 10px
+  margin-right: 20px
+  margin-left: -15px
+  &:hover
+    filter: brightness(.84) contrast(1.4)
+
+.mapOrder
+  .button
+    margin-top: 10px
+    font-size: 12px
+    padding: 10px 20px
+    outline: 2px solid!important
+    outline-offset: -8px
+    cursor: pointer
+    margin-bottom: 0
+    &:hover, &:active, &:focus
+      outline-offset: -8px
+      outline: 2px solid!important
+
+.map-link
+  cursor: pointer
 
 @import "media" // Всегда в конце

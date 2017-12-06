@@ -11,6 +11,7 @@ $(function() {
             $(".head-item>.title").height("auto").equalHeights();
             $(".sert-item").height("auto").equalHeights();
             $(".cost-item-desc").height("auto").equalHeights();
+            $(".cost-item-text").height("auto").equalHeights();
             $(".promo-item-title").height("auto").equalHeights();
             $(".promo-item-text").height("auto").equalHeights();
             $(".promo-item-desc").height("auto").equalHeights();
@@ -24,6 +25,8 @@ $(function() {
     });
 
     heightses();
+
+    $(".scroll-to-id").mPageScroll2id();
 
     $(".owl-head").owlCarousel({
         loop:true,
@@ -174,7 +177,7 @@ $(function() {
         var initOffset = $('.pickUp_game_area').offset();
         var xPos = initOffset.left;
         var yPos = initOffset.top;
-        var titleBefore = '<a href="/stoimost/" class="_link">';
+        var titleBefore = '<a href="pricelist.html" class="page-link">';
         var titleAfter = '</a>';
 
         $('.pickUp_game_item_left').mousedown(function(){
@@ -276,6 +279,55 @@ $(function() {
             }
         });
     }
+
+
+    //yandex map
+    ymaps.ready(loadmap);
+    var myMap,
+        myPlacemark,
+        objects = 1;
+
+    function loadmap(){
+        myMap = new ymaps.Map("map", {
+            center: [57.1216455, 65.568949],
+            controls: ["smallMapDefaultSet"],
+            zoom: 14
+        });
+        objects = [new ymaps.Placemark([57.144982, 65.545027],{
+            hintContent: "улица Водников, 12",
+            balloonContent: "<div class=\"mapBalloon\">улица Водников, 12<div class=\"mapOrder\"><a class=\"button button-blue\" data-email-callback=\"pelevinvanya.1990@mail.ru\" data-address-callback=\"улица Водников, 12\">Online запись</a></div></div>"},{
+            iconLayout: "default#image",
+            iconImageHref: "/img/mapPointer.png",
+            iconImageSize: [40, 40],}),
+
+            new ymaps.Placemark([57.098309, 65.592871],{
+                hintContent: "улица Николая Ростовцева, 27 (парикмахерская &quot;Малина&quot;)",
+                balloonContent: "<div class=\"mapBalloon\">улица Николая Ростовцева, 27 (парикмахерская &quot;Малина&quot;)<div class=\"mapOrder\"><a class=\"button button-blue\" data-email-callback=\"volkserg@list.ru\" data-address-callback=\"улица Николая Ростовцева, 27 (парикмахерская &quot;Малина&quot;)\">Online запись</a></div></div>"},{
+                iconLayout: "default#image",
+                iconImageHref: "/img/mapPointer.png",
+                iconImageSize: [40, 40],}),],
+
+            storage = ymaps.geoQuery(objects);var result = ymaps.geoQuery(objects).applyBoundsToMap(myMap, {zoomMargin:40|40|40|50,preciseZoom:true});var result1 = ymaps.geoQuery(objects).addToMap(myMap);//myMap.behaviors.disable("scrollZoom");
+    };
+
+    $(document).ready(function() {
+        $(".contact-address").unbind().on("click", function(e){
+            e.preventDefault();
+            var uotTakUot = $(this);
+            $.each(objects, function(key, value){
+                var berserk = value["geometry"]["_coordinates"][0] + ", " + value["geometry"]["_coordinates"][1];
+                if(berserk == uotTakUot.data("mapanchor")){
+                    var t = "#map", n = $(t).offset().top - 20;
+                    $("body,html").animate({
+                        scrollTop: n
+                    }, 500)
+                    objects[key].balloon.open();
+                }
+            })
+        });
+    });
+
+
 
 
 
