@@ -65,7 +65,7 @@ $(function() {
 
 
 
-    $(".popup-link").magnificPopup({
+    $(".popup-link, a[href='#popup-form']").magnificPopup({
         type: 'inline',
 
         fixedContentPos: false,
@@ -90,6 +90,13 @@ $(function() {
         preloader: false,
 
         fixedContentPos: false
+    });
+
+    $("a[href='#popup-form']").click(function(){
+        var dataForm = $(this).data("form");
+
+        $(".popup-form .popup-address").text(dataForm);
+        $(".popup-form [name='admin-data']").val(dataForm);
     });
 
     $('a[title]').qtip({
@@ -133,7 +140,6 @@ $(function() {
         } else {
             $but.removeClass("button-disable").removeAttr('disabled');
             $chck.prop("checked", true);
-
             $(this).find(".fa").css("opacity", 1);
         }
     });
@@ -143,14 +149,12 @@ $(function() {
            $question = $(this),
            $answer = $wrapper.find(".answer");
 
-        if ($answer.is(":visible")) {
-           $answer.slideUp();
-           $question.find(".answer-open").addClass("opened");
-
+       if ($answer.is(":visible")) {
+          $answer.slideUp();
+          $question.find(".answer-open").addClass("opened");
        } else {
            $answer.slideDown();
            $question.find(".answer-open").removeClass("opened", 1000, "ease");
-
        }
     });
 
@@ -164,8 +168,6 @@ $(function() {
             $(this).parents(".goods-item").css("box-shadow", "none");
             $(this).parents(".goods-item").find(".goods-item-desc").css("box-shadow", "none");
             $(this).parents(".goods-item").find(".goods-item-desc").slideUp();
-
-
         }
     );
 
@@ -325,6 +327,27 @@ $(function() {
                 }
             })
         });
+    });
+
+
+    //E-mail Ajax Send
+    //Documentation & Example: https://github.com/agragregra/uniMail
+    $("form").submit(function() { //Change
+        var th = $(this);
+        $.ajax({
+            type: "POST",
+            url: "mail.php", //Change
+            data: th.serialize()
+        }).done(function() {
+            $(".popup-form .succes").addClass("active");
+            setTimeout(function() {
+                // Done Functions
+                $(".popup-form .succes").removeClass("active");
+                th.trigger("reset");
+                $.magnificPopup.close();
+            }, 3000);
+        });
+        return false;
     });
 
 
