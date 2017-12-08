@@ -809,6 +809,7 @@ form.contact-form
   padding-right: 100px
   padding-left: 50px
 .contact-form-head
+  z-index: 2
   h4
     margin: 0 0 10px 0
     font-size: 24px
@@ -1190,7 +1191,6 @@ form
   .contact-record
     position: absolute
     right: 0
-    top: calc(50% - 30px)
   .button
     margin-top: 0
 
@@ -1236,24 +1236,31 @@ form
   font-size: 22px
   font-weight: 700
   position: absolute
-  z-index: 1
   width: 100%
   height: 100%
   left: 0
-  background-color: white
+  background-color: #fff
   display: flex
-  top: -200%
-  transition: all 10s ease
+  opacity: 0
+  z-index: -1
+  transition: all .7s ease
   p
     display: flex
     margin: auto
   &.active
     top: 0
+    opacity: 1
+    z-index: 2
+    
+.ishome
+  .success
+    background-color: #e9f1f8
 
 .label-wrapper
   position: relative
+  z-index: 1
 
-.popup-form
+.contact-form
   overflow: hidden
 
 @import "media" // Всегда в конце

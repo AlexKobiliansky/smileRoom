@@ -48,9 +48,6 @@ $(function() {
     });
 
 
-    $("#instaShowGallery_1").find("a").css("background", "none");
-
-
     $('.popup-sert').magnificPopup({
         removalDelay: 300,
         mainClass: 'my-mfp-zoom-sert',
@@ -62,25 +59,6 @@ $(function() {
         },
 
     });
-
-
-
-    $(".popup-link, a[href='#popup-form']").magnificPopup({
-        type: 'inline',
-
-        fixedContentPos: false,
-        fixedBgPos: true,
-
-        overflowY: 'auto',
-
-        closeBtnInside: true,
-        preloader: false,
-
-        midClick: true,
-        removalDelay: 300,
-        mainClass: 'my-mfp-zoom-in'
-    });
-
 
     $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
         disableOn: 200,
@@ -98,6 +76,7 @@ $(function() {
         $(".popup-form .popup-address").text(dataForm);
         $(".popup-form [name='admin-data']").val(dataForm);
     });
+
 
     $('a[title]').qtip({
         show: 'click',
@@ -120,12 +99,16 @@ $(function() {
     });
 
 
+    //form validation
     $.validate({
         form : '.contact-form',
     });
 
     $(".user-phone").mask("+7 (999) 999-99-99",{autoclear: false});
+    //end form validation
 
+
+    //form behavior
     $(".custom-check").on('click', function(){
 
         var $holder = $(this).parents('.contact-form'),
@@ -144,6 +127,8 @@ $(function() {
         }
     });
 
+
+    //on faq page
     $(".quest").on('click', function(){
        var $wrapper = $(this).parents(".quest-wrap"),
            $question = $(this),
@@ -158,6 +143,8 @@ $(function() {
        }
     });
 
+
+    //on goods page
     $(".moreinfo").hover(
         function(){
             $(this).parents(".goods-item").css("box-shadow", "4px 4px 6px 0 grey");
@@ -173,7 +160,7 @@ $(function() {
 
 
 
-
+    //game
     $(init);
     function init() {
         var initOffset = $('.pickUp_game_area').offset();
@@ -282,6 +269,8 @@ $(function() {
         });
     }
 
+    //end game
+
 
     //yandex map
     ymaps.ready(loadmap);
@@ -297,14 +286,14 @@ $(function() {
         });
         objects = [new ymaps.Placemark([57.144982, 65.545027],{
             hintContent: "улица Водников, 12",
-            balloonContent: "<div class=\"mapBalloon\">улица Водников, 12<div class=\"mapOrder\"><a class=\"button button-blue\" data-email-callback=\"pelevinvanya.1990@mail.ru\" data-address-callback=\"улица Водников, 12\">Online запись</a></div></div>"},{
+            balloonContent: "<div class=\"mapBalloon\">улица Водников, 12<div class=\"mapOrder\"><a class=\"button button-blue ya-popup\" href='#popup-form' data-form=\"улица Водников, 12\">Online запись</a></div></div>"},{
             iconLayout: "default#image",
             iconImageHref: "/img/mapPointer.png",
             iconImageSize: [40, 40],}),
 
             new ymaps.Placemark([57.098309, 65.592871],{
                 hintContent: "улица Николая Ростовцева, 27 (парикмахерская &quot;Малина&quot;)",
-                balloonContent: "<div class=\"mapBalloon\">улица Николая Ростовцева, 27 (парикмахерская &quot;Малина&quot;)<div class=\"mapOrder\"><a class=\"button button-blue\" data-email-callback=\"volkserg@list.ru\" data-address-callback=\"улица Николая Ростовцева, 27 (парикмахерская &quot;Малина&quot;)\">Online запись</a></div></div>"},{
+                balloonContent: "<div class=\"mapBalloon\">улица Николая Ростовцева, 27 (парикмахерская &quot;Малина&quot;)<div class=\"mapOrder\"><a class=\"button button-blue ya-popup\" data-form=\"улица Николая Ростовцева, 27\">Online запись</a></div></div>"},{
                 iconLayout: "default#image",
                 iconImageHref: "/img/mapPointer.png",
                 iconImageSize: [40, 40],}),],
@@ -329,38 +318,76 @@ $(function() {
         });
     });
 
+    //end yandex map
+
+
+    $(".popup-link, a[href='#popup-form']").magnificPopup({
+        type: 'inline',
+
+        fixedContentPos: false,
+        fixedBgPos: true,
+
+        overflowY: 'auto',
+
+        closeBtnInside: true,
+        preloader: false,
+
+        midClick: true,
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-in'
+    });
+
+
+    //popup in yandex baloons
+    $('body').on('click', '.ya-popup',function(e){
+
+        e.preventDefault();
+        var dataForm = $(this).data("form");
+
+        $(".popup-form .popup-address").text(dataForm);
+        $(".popup-form [name='admin-data']").val(dataForm);
+
+        $.magnificPopup.open({
+            items: {
+                src: '#popup-form',
+            },
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+
+        });
+    });
+    //end popup in yandex baloons
 
     //E-mail Ajax Send
-    //Documentation & Example: https://github.com/agragregra/uniMail
     $("form").submit(function() { //Change
         var th = $(this);
+        th.find('.button').addClass("button-disable").prop('disabled','disabled');
         $.ajax({
             type: "POST",
             url: "mail.php", //Change
             data: th.serialize()
         }).done(function() {
-            $(".popup-form .succes").addClass("active");
+            $(".success").addClass("active");
             setTimeout(function() {
                 // Done Functions
-                $(".popup-form .succes").removeClass("active");
+                $(".success").removeClass("active");
+                th.find(".button").removeClass("button-disable").removeAttr('disabled');
                 th.trigger("reset");
                 $.magnificPopup.close();
             }, 3000);
         });
         return false;
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
